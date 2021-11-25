@@ -16,7 +16,8 @@ public class Name {
     @NotBlank(groups = BaseValidationGroup.class)
     public String lastName;
 
-    public Name() {
+    public Name() {}
+    public Name(Boolean newEntity) {
         this.firstName = "";
         this.lastName = "";
     }

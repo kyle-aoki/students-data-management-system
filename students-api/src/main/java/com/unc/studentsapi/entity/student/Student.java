@@ -1,7 +1,7 @@
 package com.unc.studentsapi.entity.student;
 
+import com.unc.studentsapi.entity.baseEntity.BaseEntity;
 import com.unc.studentsapi.entity.entityMetadata.EntityMetadata;
-import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -10,14 +10,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "students")
-@Data
-public class Student {
-
-    @Id
-    public UUID studentId;
-
-    @Embedded
-    public EntityMetadata entityMetadata;
+public class Student extends BaseEntity {
 
     @Embedded
     @Valid
@@ -28,10 +21,9 @@ public class Student {
     public Date enrollmentDate;
 
     public Student() {}
-    public Student(Boolean newEntity) {
-        this.studentId = UUID.randomUUID();
-        this.name = new Name();
-        this.entityMetadata = new EntityMetadata();
+    public Student (Boolean newEntity) {
+        this.id = UUID.randomUUID();
+        this.name = new Name(newEntity);
+        this.entityMetadata = new EntityMetadata(newEntity);
     }
-
 }

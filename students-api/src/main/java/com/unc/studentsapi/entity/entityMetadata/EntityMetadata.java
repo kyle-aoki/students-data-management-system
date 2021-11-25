@@ -17,7 +17,8 @@ public class EntityMetadata {
     public Date lastEditedTimestamp;
     public UUID clonedFrom;
 
-    public EntityMetadata() {
+    public EntityMetadata() {}
+    public EntityMetadata(Boolean newEntity) {
         this.entityStatus = EntityStatus.PROVISIONAL;
         this.createdTimestamp = new Date();
         this.valid = false;
